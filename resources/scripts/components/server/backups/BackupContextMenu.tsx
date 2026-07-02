@@ -270,7 +270,7 @@ const BackupContextMenu = ({ backup }: Props) => {
                 </DropdownMenu>
             ) : (
                 <Button
-                    variant='destructive'
+                    variant='attention'
                     size='sm'
                     onClick={() => setModal('delete')}
                     disabled={loading}

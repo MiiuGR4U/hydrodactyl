@@ -13,7 +13,7 @@ import http, { httpErrorToHuman } from '@/api/http';
 import { getServerBackupDownloadUrl } from '@/api/server/backups';
 import { getGlobalDaemonType } from '@/api/server/getServer';
 import { ServerBackup } from '@/api/server/types';
-import ActionButton from '@/components/elements/ActionButton';
+import { Button } from '@/components/ui/button';
 import Can from '@/components/elements/Can';
 import {
     DropdownMenu,
@@ -223,16 +223,16 @@ const BackupContextMenu = ({ backup }: Props) => {
                 </div>
 
                 <Dialog.Footer>
-                    <ActionButton onClick={() => setModal('')} variant='secondary'>
+                    <Button onClick={() => setModal('')} variant='secondary'>
                         Cancel
-                    </ActionButton>
-                    <ActionButton
+                    </Button>
+                    <Button
                         onClick={doRename}
-                        variant='primary'
+                        variant='secondary'
                         disabled={!newName.trim() || newName.trim() === backup.name}
                     >
                         Rename Backup
-                    </ActionButton>
+                    </Button>
                 </Dialog.Footer>
             </Dialog>
             <Dialog.Confirm
@@ -319,7 +319,7 @@ const BackupContextMenu = ({ backup }: Props) => {
                 </div>
 
                 <Dialog.Footer>
-                    <ActionButton
+                    <Button
                         onClick={() => {
                             setModal('');
                             setRestorePassword('');
@@ -329,19 +329,19 @@ const BackupContextMenu = ({ backup }: Props) => {
                         disabled={loading}
                     >
                         Cancel
-                    </ActionButton>
-                    <ActionButton
+                    </Button>
+                    <Button
                         onClick={() => doRestorationAction()}
-                        variant='danger'
+                        variant='attention'
                         disabled={countdown > 0 || loading}
                     >
                         {loading && <Spinner size='small' />}
                         {loading
                             ? 'Restoring...'
                             : countdown > 0
-                              ? `Delete All & Restore (${countdown}s)`
-                              : 'Delete All & Restore Backup'}
-                    </ActionButton>
+                                ? `Delete All & Restore (${countdown}s)`
+                                : 'Delete All & Restore Backup'}
+                    </Button>
                 </Dialog.Footer>
             </Dialog>
             <Dialog
@@ -420,7 +420,7 @@ const BackupContextMenu = ({ backup }: Props) => {
                 </div>
 
                 <Dialog.Footer>
-                    <ActionButton
+                    <Button
                         variant='secondary'
                         onClick={() => {
                             setModal('');
@@ -430,18 +430,18 @@ const BackupContextMenu = ({ backup }: Props) => {
                         disabled={loading}
                     >
                         Cancel
-                    </ActionButton>
-                    <ActionButton variant='danger' onClick={doDeletion} disabled={loading}>
+                    </Button>
+                    <Button variant='attention' onClick={doDeletion} disabled={loading}>
                         {loading && <Spinner size='small' />}
                         {loading ? 'Deleting...' : 'Delete Backup'}
-                    </ActionButton>
+                    </Button>
                 </Dialog.Footer>
             </Dialog>
             <SpinnerOverlay visible={loading} fixed />
             {backup.isSuccessful ? (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <ActionButton
+                        <Button
                             variant='secondary'
                             size='sm'
                             disabled={loading}
@@ -450,7 +450,7 @@ const BackupContextMenu = ({ backup }: Props) => {
                             <div>
                                 <Bars width={22} height={22} fill='currentColor' />
                             </div>
-                        </ActionButton>
+                        </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align='end' className='w-48'>
                         <Can action={'backup.download'}>
@@ -480,7 +480,7 @@ const BackupContextMenu = ({ backup }: Props) => {
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem
                                         onClick={() => setModal('delete')}
-                                        className='cursor-pointer text-red-400 focus:text-red-300'
+                                        className='cursor-pointer '
                                     >
                                         <TrashBin width={22} height={22} className=' mr-2' fill='currentColor' />
                                         Delete
@@ -491,8 +491,8 @@ const BackupContextMenu = ({ backup }: Props) => {
                     </DropdownMenuContent>
                 </DropdownMenu>
             ) : (
-                <ActionButton
-                    variant='danger'
+                <Button
+                    variant='attention'
                     size='sm'
                     onClick={() => setModal('delete')}
                     disabled={loading}
@@ -500,7 +500,7 @@ const BackupContextMenu = ({ backup }: Props) => {
                 >
                     <TrashBin width={22} height={22} fill='currentColor' />
                     <span className='hidden sm:inline'>Delete</span>
-                </ActionButton>
+                </Button>
             )}
         </>
     );

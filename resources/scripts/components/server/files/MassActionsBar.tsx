@@ -107,7 +107,7 @@ const MassActionsBar = () => {
                                 {loading && loadingMessage.includes('Archiving') && <Spinner size='small' />}
                                 Archive
                             </Button>
-                            <Button variant='destructive' onClick={() => setShowConfirm(true)} disabled={loading}>
+                            <Button variant='attention' onClick={() => setShowConfirm(true)} disabled={loading}>
                                 {loading && loadingMessage.includes('Deleting') && <Spinner size='small' />}
                                 Delete
                             </Button>
