@@ -49,8 +49,8 @@ const StatGraphs = () => {
             return {
                 ...opts,
                 label: !index ? 'Network In' : 'Network Out',
-                borderColor: !index ? '#facc15' : '#60a5fa',
-                backgroundColor: hexToRgba(!index ? '#facc15' : '#60a5fa', 0.09),
+                borderColor: !index ? '#facc15' : '#2563eb',
+                backgroundColor: hexToRgba(!index ? '#facc15' : '#2563eb', 0.09),
             };
         },
     });
