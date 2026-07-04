@@ -271,8 +271,8 @@ span[aria-labelledby="select2-pUserId-container"] {
 
 .alert-success {
     color: #ffffff !important;
-    background: #51b060 !important;
-    border: 1px solid #2b5f33;
+    background: #2563eb !important;
+    border: 1px solid #1d4ed8;
 }
 
 .alert-warning {
@@ -318,9 +318,9 @@ span[aria-labelledby="select2-pUserId-container"] {
 }
 
 .callout.callout-success.callout-slim {
-    border: 1px solid #00733e !important;
-    border-left: 5px solid #00733e !important;
-    border-right: 5px solid #00733e !important;
+    border: 1px solid #1d4ed8 !important;
+    border-left: 5px solid #1d4ed8 !important;
+    border-right: 5px solid #1d4ed8 !important;
     color: #777 !important;
     background: transparent !important;
 }
@@ -358,7 +358,7 @@ span[aria-labelledby="select2-pUserId-container"] {
 
 .nav-tabs-custom > .nav-tabs > li.active.tab-success,
 .nav-tabs-custom > .nav-tabs > li.tab-success:hover {
-    border-top-color: #00733e;
+    border-top-color: #1d4ed8;
 }
 
 .nav-tabs-custom > .nav-tabs > li.active.tab-info,
@@ -591,9 +591,9 @@ body {
 }
 
 .skin-blue .sidebar-menu > li.active > a {
-    border-left-color: #f55d4f;
-    color: #f55d4f !important;
-    background: linear-gradient(90deg, rgba(248, 81, 74, 0.2) 0%, rgba(248, 81, 74, 0) 50%) !important;
+    border-left-color: #52a9ff;
+    color: #52a9ff !important;
+    background: linear-gradient(90deg, rgba(82, 169, 255, 0.2) 0%, rgba(82, 169, 255, 0) 50%) !important;
 }
 
 .skin-blue .sidebar-menu > li:hover > a {
@@ -605,7 +605,7 @@ body {
 }
 
 .text-green {
-    color: #00a65a !important;
+    color: #2563eb !important;
 }
 
 .text-muted {
@@ -621,13 +621,13 @@ body {
 }
 
 .btn-success {
-    background-color: #189a1c;
-    border-color: #0f8513;
+    background-color: #2563eb;
+    border-color: #1d4ed8;
 }
 
 .btn.btn-green:hover {
-    background-color: #0f8513;
-    border-color: #0e7717;
+    background-color: #1d4ed8;
+    border-color: #1e40af;
 }
 
 .btn-primary {
@@ -733,7 +733,7 @@ a {
 }
 
 .nav-tabs-custom > .nav-tabs > li.active {
-    border-top-color: #f55b4e;
+    border-top-color: #52a9ff;
     border-top-width: 0px;
 }
 
