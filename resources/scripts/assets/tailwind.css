@@ -27,13 +27,13 @@
     --color-mocha-100: #475569;
     --color-mocha-200: #334155;
     --color-mocha-300: #1e293b;
-    --color-mocha-400: #0f172a;
+    --color-mocha-400: #0a0f1d;
     --color-mocha-500: #0d121f;
     --color-mocha-600: #080c14;
     --color-mocha-700: #05070c;
 
     --color-bg: #080c14;
-    --color-bg-raised: #0f172a;
+    --color-bg-raised: #0a0f1d;
     --color-bg-lowered: #05080f;
 
     --color-primary: var(--color-cream-400);
@@ -63,7 +63,7 @@
     --color-green-600: #1e40af;
     --color-green-700: #1e3a8a;
     --color-green-800: #172554;
-    --color-green-900: #0f172a;
+    --color-green-900: #0a0f1d;
     --color-green-950: #0a0f1d;
 
     /* Map Red to Slate to leave nothing red */
@@ -76,6 +76,6 @@
     --color-red-600: #475569;
     --color-red-700: #334155;
     --color-red-800: #1e293b;
-    --color-red-900: #0f172a;
+    --color-red-900: #0a0f1d;
     --color-red-950: #020617;
 }
