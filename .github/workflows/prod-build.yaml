@@ -28,7 +28,7 @@ jobs:
       - name: Set up QEMU (for multi-arch)
         uses: docker/setup-qemu-action@v3
 
-      - name: Setup Blacksmith Builder
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
       - name: Build and push
