@@ -36,12 +36,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install Dependencies & Build React
         run: |
-          yarn install --frozen-lockfile
-          yarn build:production
+          pnpm install --frozen-lockfile
+          pnpm run ship
 
       # ---- Build tarball -------------------------------------------------
       - name: Create release archive
