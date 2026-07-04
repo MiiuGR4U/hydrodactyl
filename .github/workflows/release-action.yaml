@@ -33,6 +33,16 @@ jobs:
           git commit -m "ci: bump v${{ inputs.version }}" || echo "No changes to commit"
 
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies & Build React
+        run: |
+          yarn install --frozen-lockfile
+          yarn build:production
+
       # ---- Build tarball -------------------------------------------------
       - name: Create release archive
         run: |
