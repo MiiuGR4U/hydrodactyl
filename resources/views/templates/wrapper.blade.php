@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Copyright (c) 2025-Present BlueprintFramework, parent collaborators, and contributors -->
-<html data-hydrodactyl-html lang="en" style="background-color: #11100E; height: 100%; width: 100%; margin: 0; padding: 0;">
+<html data-hydrodactyl-html lang="en" style="background-color: #080c14; height: 100%; width: 100%; margin: 0; padding: 0;">
     <head>
         <title>{{ config('app.name', 'Panel') }}</title>
 
@@ -63,7 +63,7 @@
         @viteReactRefresh
         @vite('resources/scripts/index.tsx')
     </head>
-    <body data-hydrodactyl-body class="{{ $css['body'] }}" style="background-color: #11100E; height: 100%; width: 100%; margin: 0; padding: 0;">
+    <body data-hydrodactyl-body class="{{ $css['body'] }}" style="background-color: #080c14; height: 100%; width: 100%; margin: 0; padding: 0;">
         @section('content')
             @yield('above-container')
             @yield('container')

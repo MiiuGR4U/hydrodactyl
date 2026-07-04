@@ -54,28 +54,28 @@
     --font-manrope: 'Manrope', serif;
 
     /* Map Green to Blue */
-    --color-green-50: var(--color-blue-50);
-    --color-green-100: var(--color-blue-100);
-    --color-green-200: var(--color-blue-200);
-    --color-green-300: var(--color-blue-300);
-    --color-green-400: var(--color-blue-400);
-    --color-green-500: var(--color-blue-500);
-    --color-green-600: var(--color-blue-600);
-    --color-green-700: var(--color-blue-700);
-    --color-green-800: var(--color-blue-800);
-    --color-green-900: var(--color-blue-900);
-    --color-green-950: var(--color-blue-950);
+    --color-green-50: #eff6ff;
+    --color-green-100: #dbeafe;
+    --color-green-200: #bfdbfe;
+    --color-green-300: #93c5fd;
+    --color-green-400: #60a5fa;
+    --color-green-500: #3b82f6;
+    --color-green-600: #2563eb;
+    --color-green-700: #1d4ed8;
+    --color-green-800: #1e40af;
+    --color-green-900: #1e3a8a;
+    --color-green-950: #172554;
 
     /* Map Red to Slate to leave nothing red */
-    --color-red-50: var(--color-slate-50);
-    --color-red-100: var(--color-slate-100);
-    --color-red-200: var(--color-slate-200);
-    --color-red-300: var(--color-slate-300);
-    --color-red-400: var(--color-slate-400);
-    --color-red-500: var(--color-slate-500);
-    --color-red-600: var(--color-slate-600);
-    --color-red-700: var(--color-slate-700);
-    --color-red-800: var(--color-slate-800);
-    --color-red-900: var(--color-slate-900);
-    --color-red-950: var(--color-slate-950);
+    --color-red-50: #f8fafc;
+    --color-red-100: #f1f5f9;
+    --color-red-200: #e2e8f0;
+    --color-red-300: #cbd5e1;
+    --color-red-400: #94a3b8;
+    --color-red-500: #64748b;
+    --color-red-600: #475569;
+    --color-red-700: #334155;
+    --color-red-800: #1e293b;
+    --color-red-900: #0f172a;
+    --color-red-950: #020617;
 }
