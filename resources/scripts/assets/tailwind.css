@@ -6,16 +6,16 @@
 @theme {
     --color-ring: deepskyblue;
 
-    --color-brand-50: oklch(0.97 0.015 250);
-    --color-brand-100: oklch(0.935 0.03 250);
-    --color-brand-200: oklch(0.88 0.06 250);
-    --color-brand-300: oklch(0.82 0.09 250);
-    --color-brand-400: oklch(0.76 0.13 250);
-    --color-brand-500: oklch(0.70 0.16 250);
-    --color-brand-600: oklch(0.62 0.16 250);
-    --color-brand-700: oklch(0.51 0.13 250);
-    --color-brand-800: oklch(0.39 0.09 250);
-    --color-brand-900: oklch(0.24 0.05 250);
+    --color-brand-50: oklch(0.96 0.01 250);
+    --color-brand-100: oklch(0.90 0.02 250);
+    --color-brand-200: oklch(0.80 0.04 250);
+    --color-brand-300: oklch(0.70 0.06 250);
+    --color-brand-400: oklch(0.60 0.08 250);
+    --color-brand-500: oklch(0.50 0.10 250);
+    --color-brand-600: oklch(0.42 0.09 250);
+    --color-brand-700: oklch(0.34 0.07 250);
+    --color-brand-800: oklch(0.26 0.05 250);
+    --color-brand-900: oklch(0.18 0.03 250);
 
     --color-cream-100: #fafbfe;
     --color-cream-200: #f1f5f9;
@@ -45,8 +45,8 @@
     --color-black: #000000;
     --color-white: #fff;
 
-    --color-brand-grad: radial-gradient(109.26% 109.26% at 49.83% 13.37%, #3b82f6 0%, #1d4ed8 100%);
-    --color-brand: #3b82f6;
+    --color-brand-grad: radial-gradient(109.26% 109.26% at 49.83% 13.37%, #1d4ed8 0%, #1e3a8a 100%);
+    --color-brand: #1d4ed8;
 
     --transition-duration-250: 250ms;
 
@@ -54,17 +54,17 @@
     --font-manrope: 'Manrope', serif;
 
     /* Map Green to Blue */
-    --color-green-50: #eff6ff;
-    --color-green-100: #dbeafe;
-    --color-green-200: #bfdbfe;
-    --color-green-300: #93c5fd;
-    --color-green-400: #60a5fa;
-    --color-green-500: #3b82f6;
-    --color-green-600: #2563eb;
-    --color-green-700: #1d4ed8;
-    --color-green-800: #1e40af;
-    --color-green-900: #1e3a8a;
-    --color-green-950: #172554;
+    --color-green-50: #f0f5ff;
+    --color-green-100: #e0ebff;
+    --color-green-200: #c2d7ff;
+    --color-green-300: #94b8ff;
+    --color-green-400: #3b82f6;
+    --color-green-500: #1d4ed8;
+    --color-green-600: #1e40af;
+    --color-green-700: #1e3a8a;
+    --color-green-800: #172554;
+    --color-green-900: #0f172a;
+    --color-green-950: #0a0f1d;
 
     /* Map Red to Slate to leave nothing red */
     --color-red-50: #f8fafc;
