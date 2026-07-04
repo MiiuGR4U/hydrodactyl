@@ -105,20 +105,20 @@ const StatGraphs = () => {
         <TooltipProvider>
             <div className='flex h-full flex-col gap-4 overflow-y-auto flex-none'>
                 <div>
-                    <div className='group p-4 justify-between relative rounded-xl border-[1px] border-[#ffffff11] bg-[#110f0d] flex gap-4 text-sm'>
+                    <div className='group p-4 justify-between relative rounded-xl border-[1px] border-[#ffffff11] bg-bg-raised flex gap-4 text-sm'>
                         <h3 className='font-extrabold'>IP Address</h3>
                         <div className='font-medium'>{allocation}</div>
                     </div>
                 </div>
                 <div>
-                    <div className='group p-4 justify-between relative rounded-xl border-[1px] border-[#ffffff11] bg-[#110f0d] flex gap-4 text-sm'>
+                    <div className='group p-4 justify-between relative rounded-xl border-[1px] border-[#ffffff11] bg-bg-raised flex gap-4 text-sm'>
                         <h3 className='font-extrabold'>Uptime</h3>
                         <div className='font-medium'>{formatUptime(uptime)}</div>
                     </div>
                 </div>
                 {description && (
                     <div>
-                        <div className='group p-4 justify-between relative rounded-xl border-[1px] border-[#ffffff11] flex-col bg-[#110f0d] flex gap-4 text-sm'>
+                        <div className='group p-4 justify-between relative rounded-xl border-[1px] border-[#ffffff11] flex-col bg-bg-raised flex gap-4 text-sm'>
                             <h3 className='font-extrabold'>Description</h3>
                             <div className='font-medium'>{description}</div>
                         </div>
