@@ -4,10 +4,10 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2026-07-05T00:00:00+00:00",
+    "exported_at": "2026-07-04T21:55:08-03:00",
     "name": "LeafMC",
     "author": "migueklegal@gmail.com",
-    "description": "Leaf is a high-performance fork of PaperMC designed for extreme optimization, featuring Gale/Pufferfish tweaks, asynchronous pathfinding, Lithium-based physics optimizations, and ZGC support.",
+    "description": "Leaf is a high-performance fork of PaperMC designed for extreme optimization, featuring Gale\/Pufferfish tweaks, asynchronous pathfinding, Lithium-based physics optimizations, and ZGC support.",
     "features": [
         "eula",
         "java_version",
@@ -15,10 +15,10 @@
         "subdomain_minecraft"
     ],
     "docker_images": {
-        "GraalVM Java 21 (Recommended)": "ghcr.io/pterodactyl/yolks:java_21-graalvm",
-        "Java 25": "ghcr.io/pterodactyl/yolks:java_25",
-        "Java 21": "ghcr.io/pterodactyl/yolks:java_21",
-        "Java 17": "ghcr.io/pterodactyl/yolks:java_17"
+        "GraalVM Java 25": "ghcr.io\/rikodev\/pterodactyl-graalvm:25-jdk",
+        "GraalVM Java 22": "ghcr.io\/rikodev\/pterodactyl-graalvm:22-jdk",
+        "GraalVM Java 21": "ghcr.io\/rikodev\/pterodactyl-graalvm:21-jdk",
+        "GraalVM Java 17": "ghcr.io\/rikodev\/pterodactyl-graalvm:17-jdk"
     },
     "file_denylist": [],
     "startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 {{JVM_FLAGS}} -jar {{SERVER_JARFILE}}",
@@ -30,8 +30,8 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!/bin/ash\r\n# LeafMC Installation Script\r\n#\r\n# Server Files: /mnt/server\r\nPROJECT=leaf\r\nUSER_AGENT=\"Pterodactyl (https://pterodactyl.io)\"\r\n\r\nif [ -n \"${DL_PATH}\" ]; then\r\n\techo -e \"Using supplied download url: ${DL_PATH}\"\r\n\tDOWNLOAD_URL=`eval echo $(echo ${DL_PATH} | sed -e 's/{{/${/g' -e 's/}}/}/g')`\r\nelse\r\n\tVER_EXISTS=`curl --user-agent \"${USER_AGENT}\" -s https://api.leafmc.one/v2/projects/${PROJECT} | jq -r --arg VERSION \"$MINECRAFT_VERSION\" '.versions | any(.[]; index($VERSION))' | grep -m1 true`\r\n\tLATEST_VERSION=`curl --user-agent \"${USER_AGENT}\" -s https://api.leafmc.one/v2/projects/${PROJECT} | jq -r '.versions[-1]'`\r\n\r\n\tif [ \"${VER_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"Version is valid. Using version ${MINECRAFT_VERSION}\"\r\n\telse\r\n\t\techo -e \"Specified version not found. Defaulting to the latest ${PROJECT} version\"\r\n\t\tMINECRAFT_VERSION=${LATEST_VERSION}\r\n\tfi\r\n\r\n\tBUILD_EXISTS=`curl --user-agent \"${USER_AGENT}\" -s https://api.leafmc.one/v2/projects/${PROJECT}/versions/${MINECRAFT_VERSION} | jq -r --arg BUILD ${BUILD_NUMBER} '.builds[] | tostring | contains($BUILD)' | grep -m1 true`\r\n\tLATEST_BUILD=`curl --user-agent \"${USER_AGENT}\" -s https://api.leafmc.one/v2/projects/${PROJECT}/versions/${MINECRAFT_VERSION} | jq -r '.builds[-1]'`\r\n\r\n\tif [ \"${BUILD_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"Build is valid for version ${MINECRAFT_VERSION}. Using build ${BUILD_NUMBER}\"\r\n\telse\r\n\t\techo -e \"Using the latest ${PROJECT} build for version ${MINECRAFT_VERSION}\"\r\n\t\tBUILD_NUMBER=${LATEST_BUILD}\r\n\tfi\r\n\r\n\techo \"Version being downloaded\"\r\n\techo -e \"Project: ${PROJECT}\"\r\n\techo -e \"MC Version: ${MINECRAFT_VERSION}\"\r\n\techo -e \"Build: ${BUILD_NUMBER}\"\r\n\t\r\n\tJAR_NAME=`curl --user-agent \"${USER_AGENT}\" -s https://api.leafmc.one/v2/projects/${PROJECT}/versions/${MINECRAFT_VERSION}/builds/${BUILD_NUMBER} | jq -r '.downloads.primary.name'`\r\n\tDOWNLOAD_URL=\"https://api.leafmc.one/v2/projects/${PROJECT}/versions/${MINECRAFT_VERSION}/builds/${BUILD_NUMBER}/downloads/${JAR_NAME}\"\r\nfi\r\n\r\ncd /mnt/server\r\n\r\necho -e \"Running curl --user-agent \\\"${USER_AGENT}\\\" -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\"\r\n\r\nif [ -f ${SERVER_JARFILE} ]; then\r\n\tmv ${SERVER_JARFILE} ${SERVER_JARFILE}.old\r\nfi\r\n\r\ncurl --user-agent \"${USER_AGENT}\" -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\r\n\r\nif [ ! -f server.properties ]; then\r\n    echo -e \"Downloading MC server.properties\"\r\n    curl --user-agent \"${USER_AGENT}\" -o server.properties https://raw.githubusercontent.com/pterodactyl/game-eggs/main/minecraft/java/server.properties\r\nfi",
-            "container": "ghcr.io/pterodactyl/installers:alpine",
+            "script": "#!\/bin\/ash\r\n# LeafMC Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\nPROJECT=leaf\r\nUSER_AGENT=\"Pterodactyl (https:\/\/pterodactyl.io)\"\r\n\r\nif [ -n \"${DL_PATH}\" ]; then\r\n\techo -e \"Using supplied download url: ${DL_PATH}\"\r\n\tDOWNLOAD_URL=`eval echo $(echo ${DL_PATH} | sed -e 's\/{{\/${\/g' -e 's\/}}\/}\/g')`\r\nelse\r\n\tVER_EXISTS=`curl --user-agent \"${USER_AGENT}\" -s https:\/\/api.leafmc.one\/v2\/projects\/${PROJECT} | jq -r --arg VERSION \"$MINECRAFT_VERSION\" '.versions | any(.[]; index($VERSION))' | grep -m1 true`\r\n\tLATEST_VERSION=`curl --user-agent \"${USER_AGENT}\" -s https:\/\/api.leafmc.one\/v2\/projects\/${PROJECT} | jq -r '.versions[-1]'`\r\n\r\n\tif [ \"${VER_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"Version is valid. Using version ${MINECRAFT_VERSION}\"\r\n\telse\r\n\t\techo -e \"Specified version not found. Defaulting to the latest ${PROJECT} version\"\r\n\t\tMINECRAFT_VERSION=${LATEST_VERSION}\r\n\tfi\r\n\r\n\tBUILD_EXISTS=`curl --user-agent \"${USER_AGENT}\" -s https:\/\/api.leafmc.one\/v2\/projects\/${PROJECT}\/versions\/${MINECRAFT_VERSION} | jq -r --arg BUILD ${BUILD_NUMBER} '.builds[] | tostring | contains($BUILD)' | grep -m1 true`\r\n\tLATEST_BUILD=`curl --user-agent \"${USER_AGENT}\" -s https:\/\/api.leafmc.one\/v2\/projects\/${PROJECT}\/versions\/${MINECRAFT_VERSION} | jq -r '.builds[-1]'`\r\n\r\n\tif [ \"${BUILD_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"Build is valid for version ${MINECRAFT_VERSION}. Using build ${BUILD_NUMBER}\"\r\n\telse\r\n\t\techo -e \"Using the latest ${PROJECT} build for version ${MINECRAFT_VERSION}\"\r\n\t\tBUILD_NUMBER=${LATEST_BUILD}\r\n\tfi\r\n\r\n\techo \"Version being downloaded\"\r\n\techo -e \"Project: ${PROJECT}\"\r\n\techo -e \"MC Version: ${MINECRAFT_VERSION}\"\r\n\techo -e \"Build: ${BUILD_NUMBER}\"\r\n\t\r\n\tJAR_NAME=`curl --user-agent \"${USER_AGENT}\" -s https:\/\/api.leafmc.one\/v2\/projects\/${PROJECT}\/versions\/${MINECRAFT_VERSION}\/builds\/${BUILD_NUMBER} | jq -r '.downloads.primary.name'`\r\n\tDOWNLOAD_URL=\"https:\/\/api.leafmc.one\/v2\/projects\/${PROJECT}\/versions\/${MINECRAFT_VERSION}\/builds\/${BUILD_NUMBER}\/downloads\/${JAR_NAME}\"\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"Running curl --user-agent \\\"${USER_AGENT}\\\" -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\"\r\n\r\nif [ -f ${SERVER_JARFILE} ]; then\r\n\tmv ${SERVER_JARFILE} ${SERVER_JARFILE}.old\r\nfi\r\n\r\ncurl --user-agent \"${USER_AGENT}\" -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\r\n\r\nif [ ! -f server.properties ]; then\r\n    echo -e \"Downloading MC server.properties\"\r\n    curl --user-agent \"${USER_AGENT}\" -o server.properties https:\/\/raw.githubusercontent.com\/pterodactyl\/game-eggs\/main\/minecraft\/java\/server.properties\r\nfi",
+            "container": "ghcr.io\/pterodactyl\/installers:alpine",
             "entrypoint": "ash"
         }
     },
@@ -53,7 +53,7 @@
             "default_value": "server.jar",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|regex:/^([\\w\\d._-]+)(\\.jar)$/",
+            "rules": "required|regex:\/^([\\w\\d._-]+)(\\.jar)$\/",
             "field_type": "text"
         },
         {
@@ -78,7 +78,7 @@
         },
         {
             "name": "JVM Optimizations",
-            "description": "JVM startup flags for optimized Garbage Collection and memory management.\r\n\r\n- Aikar's G1GC (Default) - Best general performance for Java 17/21 G1.\r\n- Generational ZGC (Java 21+ Recommended):\r\n  -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+ZGenerational -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+UseNUMA -XX:+AlwaysActAsServerClassMachine -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UseDynamicNumberOfGCThreads\r\n- Generational Shenandoah GC:\r\n  -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=generational -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+UseNUMA -XX:+AlwaysActAsServerClassMachine -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UseDynamicNumberOfGCThreads",
+            "description": "JVM startup flags for optimized Garbage Collection and memory management.\r\n\r\n- Aikar's G1GC (Default) - Best general performance for Java 17\/21 G1.\r\n- Generational ZGC (Java 21+ Recommended):\r\n  -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+ZGenerational -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+UseNUMA -XX:+AlwaysActAsServerClassMachine -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UseDynamicNumberOfGCThreads\r\n- Generational Shenandoah GC:\r\n  -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=generational -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+UseNUMA -XX:+AlwaysActAsServerClassMachine -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UseDynamicNumberOfGCThreads",
             "env_variable": "JVM_FLAGS",
             "default_value": "-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1",
             "user_viewable": true,
