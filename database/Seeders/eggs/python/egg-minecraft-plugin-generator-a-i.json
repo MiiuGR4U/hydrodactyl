@@ -1,0 +1,54 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-07-04T20:59:25-03:00",
+    "name": "Minecraft Plugin Generator AI",
+    "author": "custom@pterodactyl.io",
+    "description": "Gerador inteligente de plugins Minecraft usando IA Gemini 2.5 Pro. Suporte para Paper API, Adventure API, Java 21, Maven\/Gradle.",
+    "features": [
+        "eula"
+    ],
+    "docker_images": {
+        "ghcr.io\/miiugr4u\/minecraft-plugin-generator:latest": "ghcr.io\/miiugr4u\/minecraft-plugin-generator:latest"
+    },
+    "file_denylist": [],
+    "startup": "python3 {{PYTHON_FILE}} {{PYTHON_ARGS}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\"done\": \"Plugin compilado, verifique a pasta\"}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\necho '[INFO] Minecraft Plugin Generator AI - Imagem Docker personalizada'\necho '[INFO] Python, Java, Maven e Gradle j\u00e1 est\u00e3o instalados'\necho '[INFO] Pronto para gerar plugins!'\necho '[SUCCESS] Instala\u00e7\u00e3o conclu\u00edda!'",
+            "container": "ghcr.io\/miiugr4u\/minecraft-plugin-generator:latest",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Arquivo Python Principal",
+            "description": "Nome do arquivo Python que ser\u00e1 executado (ex: minecraft_plugin_generator.py)",
+            "env_variable": "PYTHON_FILE",
+            "default_value": "minecraft_plugin_generator.py",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100",
+            "field_type": "text"
+        },
+        {
+            "name": "Argumentos Python",
+            "description": "Argumentos extras para o script Python (opcional)",
+            "env_variable": "PYTHON_ARGS",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:200",
+            "field_type": "text"
+        }
+    ]
+}
