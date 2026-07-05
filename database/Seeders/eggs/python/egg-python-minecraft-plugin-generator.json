@@ -1,0 +1,42 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-07-04T20:59:30-03:00",
+    "name": "Python Minecraft Plugin Generator",
+    "author": "admin@pterodactyl.io",
+    "description": "Gerador automatico de plugins Minecraft usando Python e IA",
+    "features": null,
+    "docker_images": {
+        "Python 3.11": "python:3.11"
+    },
+    "file_denylist": [],
+    "startup": "if [ -f {{PYTHON_FILE}} ]; then python3 {{PYTHON_FILE}}; else echo 'Arquivo nao encontrado'; ls -la; tail -f \/dev\/null; fi",
+    "config": {
+        "files": "{}",
+        "startup": "{\"done\": \"PLUGIN COMPILADO\"}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\napt update\napt install -y openjdk-21-jdk maven wget unzip\nwget -q https:\/\/services.gradle.org\/distributions\/gradle-8.5-bin.zip\nunzip -q gradle-8.5-bin.zip\nmv gradle-8.5 \/opt\/gradle\nln -s \/opt\/gradle\/bin\/gradle \/usr\/bin\/gradle\nrm gradle-8.5-bin.zip\nexport JAVA_HOME=\/usr\/lib\/jvm\/java-21-openjdk-amd64\ncd \/mnt\/server\necho 'Instalacao concluida'",
+            "container": "python:3.11",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Python File",
+            "description": "Nome do arquivo Python principal",
+            "env_variable": "PYTHON_FILE",
+            "default_value": "main.py",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        }
+    ]
+}

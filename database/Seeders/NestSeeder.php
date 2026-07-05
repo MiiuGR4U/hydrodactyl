@@ -41,6 +41,8 @@ class NestSeeder extends Seeder
         ])->keyBy('name')->toArray();
 
         $this->createMinecraftNest(array_get($items, 'Minecraft'));
+        $this->createSitesNest(array_get($items, 'Sites'));
+        $this->createPythonNest(array_get($items, 'Python'));
         $this->createHytaleNest(array_get($items, 'Hytale'));
         $this->createSourceEngineNest(array_get($items, 'Source Engine'));
         $this->createVoiceServersNest(array_get($items, 'Voice Servers'));
@@ -59,6 +61,36 @@ class NestSeeder extends Seeder
             $this->creationService->handle([
                 'name' => 'Minecraft',
                 'description' => 'Minecraft - the classic game from Mojang. With support for Vanilla MC, Spigot, and many others!',
+            ], 'support@pterodactyl.io');
+        }
+    }
+
+    /**
+     * Create the Sites nest to be used later on.
+     *
+     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
+     */
+    private function createSitesNest(?array $nest = null)
+    {
+        if (is_null($nest)) {
+            $this->creationService->handle([
+                'name' => 'Sites',
+                'description' => 'Sites - hosting websites using Apache, Nginx, Node.js and more!',
+            ], 'support@pterodactyl.io');
+        }
+    }
+
+    /**
+     * Create the Python nest to be used later on.
+     *
+     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
+     */
+    private function createPythonNest(?array $nest = null)
+    {
+        if (is_null($nest)) {
+            $this->creationService->handle([
+                'name' => 'Python',
+                'description' => 'Python - execute Python scripts, Discord bots, and other applications!',
             ], 'support@pterodactyl.io');
         }
     }
