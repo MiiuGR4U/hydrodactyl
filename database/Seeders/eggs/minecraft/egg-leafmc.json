@@ -6,7 +6,7 @@
     },
     "exported_at": "2026-07-05T00:00:00+00:00",
     "name": "LeafMC",
-    "author": "support@pterodactyl.io",
+    "author": "migueklegal@gmail.com",
     "description": "Leaf is a high-performance fork of PaperMC designed for extreme optimization, featuring Gale/Pufferfish tweaks, asynchronous pathfinding, Lithium-based physics optimizations, and ZGC support.",
     "features": [
         "eula",
