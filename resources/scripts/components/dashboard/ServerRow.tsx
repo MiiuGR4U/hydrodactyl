@@ -19,6 +19,10 @@ align-items: center;
 justify-content: space-between;
 position: relative;
 
+    @media (max-width: 639px) {
+        padding: 1rem 1.25rem;
+    }
+
     &:hover {
     border: 1px solid #ffffff11;
 }
@@ -109,13 +113,15 @@ const ServerRow = ({ server, className }: { server: Server; className?: string }
             className={`${className} bg-mocha-500 hover:bg-mocha-400 border border-[1px] border-mocha-400 hover:border-mocha-400`}
             $status={stats?.status || 'offline'}
         >
-            <div className={`flex items-center`}>
-                <div className='flex flex-col'>
-                    <div className='flex items-center gap-2'>
-                        <p className={`text-xl tracking-tight font-bold truncate max-w-[20vw]`}>{server.name}</p>{' '}
+            <div className={`flex items-center min-w-0`}>
+                <div className='flex flex-col min-w-0'>
+                    <div className='flex items-center gap-2 min-w-0'>
+                        <p className={`text-xl tracking-tight font-bold truncate min-w-0 max-w-full sm:max-w-[20vw]`}>
+                            {server.name}
+                        </p>{' '}
                         <div className={'status-bar'} />
                     </div>
-                    <p className={`text-sm text-[#ffffff66]`}>
+                    <p className={`text-sm text-[#ffffff66] truncate`}>
                         {server.allocations
                             .filter((alloc) => alloc.isDefault)
                             .map((allocation) => (
